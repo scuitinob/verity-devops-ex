@@ -70,8 +70,6 @@ pipeline {
             }
         }
 		//Code ends for stage Install
-		
-		
 		//Code starts for stage Launch Tomcat Server
 		stage('Launch Tomcat Server') {
             steps {
@@ -79,8 +77,6 @@ pipeline {
             }
         }
 		//Code ends for stage Launch Tomcat Server
-		
-		
 		//Code starts for Deploy War on Tomcat Server
 		stage('Deploy War on Tomcat Server') {
             steps {
@@ -88,5 +84,14 @@ pipeline {
             }
         }
 		//Code ends for stage Deploy War on Tomcat Server
+        //Code starts for stage API Test
+		stage('API Test') {
+            steps {
+				//Change git url below as per your forked github repository URL
+				git url: 'https://github.com/scuitinob/EMAPITests-ex.git'
+            	sh 'mvn -Dtest=ExpenseManagerAPITest test'
+            }
+        }
+		//Code ends for stage API Test	
     }
 }
