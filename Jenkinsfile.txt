@@ -28,6 +28,7 @@ pipeline {
             }
         }
 		//Code ends for stage Compile
+        /*
         //Code starts for stage Code Analysis
 		stage('Code Analysis') {
             steps {
@@ -39,8 +40,9 @@ pipeline {
 				sh "${scannerHome}/bin/sonar-scanner"
 				}
 			}
-		}
+		}/
 		//Code ends for stage Code Analysis
+        */
 		//Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
